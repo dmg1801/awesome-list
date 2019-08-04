@@ -1,26 +1,31 @@
 (function () {
     'use strict';
     
-    angular.module('ShoppingListApp', [])
-    .controller('ShoppingListAddController', ShoppingListAddController)
-    .controller('ShoppingListShowController', ShoppingListShowController)
+    angular.module('awesomeListApp', [])
+    .controller('awesomeListAddController', awesomeListAddController)
+    .controller('awesomeListShowController', awesomeListShowController)
     .service('ShoppingListService', ShoppingListService);
     
-    ShoppingListAddController.$inject = ['ShoppingListService'];
-    function ShoppingListAddController(ShoppingListService) {
-      var itemAdder = this;
+    awesomeListAddController.$inject = ['ShoppingListService'];
+    function awesomeListAddController(ShoppingListService) {
+      var listAdder = this;
     
-      itemAdder.itemName = "";
-      itemAdder.itemQuantity = "";
+      listAdder.text = "";
+      listAdder.itemName = null;
+      listAdder.itemQuantity = null;
     
-      itemAdder.addItem = function () {
-        ShoppingListService.addItem(itemAdder.itemName, itemAdder.itemQuantity);
-      }
+      listAdder.addItem = function () {
+        ShoppingListService.addItem(listAdder.itemName, listAdder.itemQuantity);
+
+        //reset inputs
+        listAdder.itemName = null;
+        listAdder.itemQuantity = null;
+      };
     }
     
     
-    ShoppingListShowController.$inject = ['ShoppingListService'];
-    function ShoppingListShowController(ShoppingListService) {
+    awesomeListShowController.$inject = ['ShoppingListService'];
+    function awesomeListShowController(ShoppingListService) {
       var showList = this;
     
       showList.items = ShoppingListService.getItems();

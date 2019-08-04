@@ -3,25 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="formular to searct rabbits">
-    <meta name="keywords" content="rabbit, kaninchen, krankheit">
-    <meta name="author" content="D. Mongay">
-    <meta name="base angularjs code" content="prof. Yaakov Chaikin">
+    <meta name="description" content="awesome list to do awesome stuff">
+    <meta name="keywords" content="list, to do, awesome">
+    <meta name="author" content="D. Mongay">   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../lib/angular.min.js"></script>
     <script src="src/main.js"></script>
     <title>Awesome List!</title>
 </head>
 
-<body ng-app='ShoppingListApp'>
+<body ng-app='awesomeListApp'>
     <h1>Awesome list of awesome things to do</h1>
-    <div ng-controller='ShoppingListAddController as itemAdder'>
-        <input type="text" ng-model="itemAdder.itemName" placeholder="item name">
-        <input type="text" ng-model="itemAdder.itemQuantity" placeholder="quantity">
-        <button ng-click="itemAdder.addItem();">Add Item To Shopping List</button>
+    <div ng-controller='awesomeListAddController as listAdder'>
+        <input type="text" ng-model="listAdder.itemName" placeholder="item name">
+        <input type="text" ng-model="listAdder.itemQuantity" placeholder="quantity">
+        <button ng-click="listAdder.addItem();">Add Item To Shopping List</button>
     </div>
 
-    <div ng-controller='ShoppingListShowController as showList'>
+    <div ng-controller='awesomeListShowController as showList'>
         <ol>
             <li ng-repeat="item in showList.items">
                 {{ item.quantity }} of {{ item.name }}
