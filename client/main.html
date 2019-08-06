@@ -16,7 +16,7 @@
     <h1>Awesome list of awesome things to do</h1>
     <div ng-controller='awesomeListAddController as listAdder'>
         <input type="text" ng-model="listAdder.itemName" placeholder="item name">
-        <select name="awesomePriority" id="awesomePriority" data-ng-model="listAdder.priority" data-ng-disabled="true">
+        <select name="awesomePriority" id="awesomePriority" data-ng-model="listAdder.priority">
             <option value="Normal Priority"> Normal Priority
             </option>
             <option value="High Priority"> High Priority
