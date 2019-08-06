@@ -33,8 +33,7 @@
     showList.doneItems = ShoppingListService.doneItems();
 
     showList.removeItem = function (itemIndex) {
-      ShoppingListService.removeItem(itemIndex);
-      ShoppingListService.doneItem(itemIndex);
+      ShoppingListService.removeItem(itemIndex);      
     };
   }
 
@@ -43,35 +42,34 @@
     var service = this;
 
     // List of shopping items
-    var items = [];
+    service.items = [];
 
-    var done = [];
+    service.done = [];
 
     service.addItem = function (itemName, itemQuantity) {
       var item = {
         name: itemName,
         quantity: itemQuantity
       };
-      items.push(item);
+      service.items.push(item);
     };
 
-    service.doneItem = function () {
-      done.push(itemIdex, 1);
-    };
+    // service.doneItem = function () {
+    //   service.done.push(itemIdex, 1);
+    // };
 
-    service.removeItem = function (itemIdex) {
-      items.splice(itemIdex, 1);
+    service.removeItem = function (itemIndex) {
+
+      var listToRemove = service.items.splice(itemIndex, 1)[0];
+      service.done.push(listToRemove);
     };
 
     service.getItems = function () {
-      return items;
+      return service.items;
     };
 
     service.doneItems = function () {
-      return done;
+      return service.done;
     };
   }
-
-
-
 })();
