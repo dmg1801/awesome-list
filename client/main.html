@@ -3,31 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="awesome list to do awesome stuff">
+    <meta name="description" content="Wichtige Liste">
     <meta name="keywords" content="list, to do, awesome">
     <meta name="author" content="D. Mongay">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../lib/angular.min.js"></script>
     <script src="src/main.js"></script>
-    <title>Awesome List!</title>
+    <title>Wichtige Liste!</title>
 </head>
 
 <body ng-app='awesomeListApp'>
-    <h1>Awesome list of awesome things to do</h1>
+    <h1>Wichtige Aufgabe:</h1>
     <div ng-controller='awesomeListAddController as listAdder'>
-        <input type="text" ng-model="listAdder.itemName" placeholder="item name">
+        <textarea type="text" rows="4" cols="50" ng-model="listAdder.itemName" placeholder="Ihre Text hier"></textarea>
         <input type="text" ng-model="listAdder.itemQuantity" placeholder="quantity">
-        <button ng-click="listAdder.addItem();">Add Item To Shopping List</button>
+        <button ng-click="listAdder.addItem();">Zur erledigten Liste hinzufügen</button>
     </div>
 
     <div ng-controller='awesomeListShowController as showList'>
         <ol>
             <li ng-repeat="item in showList.items">
                 {{ item.quantity }} of {{ item.name }}
-                <button ng-click="showList.removeItem($index);">Remove Item</button>
+                <button ng-click="showList.removeItem($index);">FERTIG!</button>
             </li>
         </ol>
-        <h3>Done List:</h3>
+        <h3>Schon Fertig:</h3>
         <ol>
             <li ng-repeat="item in showList.doneItems">
                 {{ item.quantity }} of {{ item.name }}

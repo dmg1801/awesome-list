@@ -53,11 +53,7 @@
       };
       service.items.push(item);
     };
-
-    // service.doneItem = function () {
-    //   service.done.push(itemIdex, 1);
-    // };
-
+ 
     service.removeItem = function (itemIndex) {
 
       var listToRemove = service.items.splice(itemIndex, 1)[0];
