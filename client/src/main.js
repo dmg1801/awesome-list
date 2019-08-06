@@ -13,8 +13,8 @@
     var listAdder = this;
 
     listAdder.text = "";
+    listAdder.itemName = null;
     listAdder.priority = null;
-    listAdder.itemQuantity = null;
 
     listAdder.addItem = function () {
       ShoppingListService.addItem(listAdder.itemName, listAdder.priority);
@@ -46,6 +46,9 @@
 
     doneList.items = ShoppingListService.getDoneItems();
 
+    doneList.itemName = null;
+    doneList.priority = null;
+
   }
 
 
@@ -57,17 +60,17 @@
 
     var doneItems = [];
 
-    service.addItem = function (itemName, priority) {
+    service.addItem = function (name, priority) {
       var item = {
-        name: itemName,
+        name: name,
         priority: priority
       };
       items.push(item);
     };
 
-    service.addDoneItem = function (itemName, priority) {
+    service.addDoneItem = function (name, priority) {
       var doneItem = {
-        name: itemName,
+        name: name,
         priority: priority
       };
       doneItems.push(doneItem);
