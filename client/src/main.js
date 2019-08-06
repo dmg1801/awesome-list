@@ -34,6 +34,7 @@
 
     showList.removeItem = function (itemIndex) {
       ShoppingListService.removeItem(itemIndex);
+      ShoppingListService.doneItem(itemIndex);
     };
   }
 
