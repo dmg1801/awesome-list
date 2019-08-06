@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="awesome list to do awesome stuff">
     <meta name="keywords" content="list, to do, awesome">
-    <meta name="author" content="D. Mongay">   
+    <meta name="author" content="D. Mongay">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../lib/angular.min.js"></script>
     <script src="src/main.js"></script>
@@ -16,15 +16,30 @@
     <h1>Awesome list of awesome things to do</h1>
     <div ng-controller='awesomeListAddController as listAdder'>
         <input type="text" ng-model="listAdder.itemName" placeholder="item name">
-        <input type="text" ng-model="listAdder.itemQuantity" placeholder="quantity">
-        <button ng-click="listAdder.addItem();">Add Item To Shopping List</button>
+        <select name="awesomePriority" id="awesomePriority" data-ng-model="listAdder.priority" data-ng-disabled="true">
+            <option value="Normal Priority"> Normal Priority
+            </option>
+            <option value="High Priority"> High Priority
+            </option>
+        </select>
+        <button ng-click="listAdder.addItem();">Add Item To the List</button>
     </div>
 
     <div ng-controller='awesomeListShowController as showList'>
         <ol>
             <li ng-repeat="item in showList.items">
-                {{ item.quantity }} of {{ item.name }}
+                {{ item.quantity }} of {{ item.priority }}
                 <button ng-click="showList.removeItem($index);">Remove Item</button>
+            </li>
+        </ol>
+    </div>
+    <br>
+
+    <h3>Done list:</h3>
+    <div ng-controller='doneListShowController as doneList'>
+        <ol>
+            <li ng-repeat="item in doneList.items.items">
+                {{ item.quantity }} of {{ item.priority }}
             </li>
         </ol>
     </div>
