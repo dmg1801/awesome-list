@@ -13,13 +13,13 @@
 
     listAdder.text = "";
     listAdder.itemName = null;
-    listAdder.itemQuantity = null;
+    listAdder.priority = null;
 
     listAdder.addItem = function () {
-      ShoppingListService.addItem(listAdder.itemName, listAdder.itemQuantity);
+      ShoppingListService.addItem(listAdder.itemName, listAdder.priority);
       //reset inputs
       listAdder.itemName = null;
-      listAdder.itemQuantity = null;
+      listAdder.priority = null;
     };
   }
 
@@ -46,10 +46,10 @@
 
     service.done = [];
 
-    service.addItem = function (itemName, itemQuantity) {
+    service.addItem = function (itemName, priority) {
       var item = {
         name: itemName,
-        quantity: itemQuantity
+        quantity: priority
       };
       service.items.push(item);
     };

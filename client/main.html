@@ -15,22 +15,33 @@
 <body ng-app='awesomeListApp'>
     <h1>Wichtige Aufgabe:</h1>
     <div ng-controller='awesomeListAddController as listAdder'>
-        <textarea type="text" rows="4" cols="50" ng-model="listAdder.itemName" placeholder="Ihre Text hier"></textarea>
-        <input type="text" ng-model="listAdder.itemQuantity" placeholder="quantity">
-        <button ng-click="listAdder.addItem();">Zur erledigten Liste hinzufügen</button>
+        <div>
+            <textarea type="text" rows="4" cols="50" ng-model="listAdder.itemName"
+                placeholder="Ihre Text hier"></textarea>
+        </div>
+        <div>
+            <input type="text" ng-model="listAdder.itemQuantity" placeholder="Priorität">
+            <select name="priority" id="priority" data-ng-model="listAdder.priority">
+                <option value="Normal Priority"> Normal Priority
+                </option>
+                <option value="High Priority"> High Priority
+                </option>
+            </select>
+            <button ng-click="listAdder.addItem();">Zur erledigten Liste hinzufügen</button>
+        </div>
     </div>
 
     <div ng-controller='awesomeListShowController as showList'>
         <ol>
             <li ng-repeat="item in showList.items">
-                {{ item.quantity }} of {{ item.name }}
+                {{ item.quantity }} -> {{ item.name }}
                 <button ng-click="showList.removeItem($index);">FERTIG!</button>
             </li>
         </ol>
         <h3>Schon Fertig:</h3>
         <ol>
             <li ng-repeat="item in showList.doneItems">
-                {{ item.quantity }} of {{ item.name }}
+                {{ item.quantity }} -> {{ item.name }}
             </li>
         </ol>
     </div>
