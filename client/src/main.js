@@ -47,20 +47,16 @@
 
     var done = [];
 
-    service.addItem = function (itemName, quantity) {
+    service.addItem = function (itemName, itemQuantity) {
       var item = {
         name: itemName,
-        quantity: quantity
+        quantity: itemQuantity
       };
       items.push(item);
     };
 
-    service.doneItem = function (itemName, quantity) {
-      var item = {
-        name: itemName,
-        quantity: quantity
-      };
-      done.push(item);
+    service.doneItem = function () {
+      done.push(itemIdex, 1);
     };
 
     service.removeItem = function (itemIdex) {
