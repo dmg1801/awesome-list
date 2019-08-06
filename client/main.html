@@ -28,7 +28,7 @@
     <div ng-controller='awesomeListShowController as showList'>
         <ol>
             <li ng-repeat="item in showList.items">
-                {{ item.quantity }} of {{ item.priority }}
+                {{ item.priority }} of {{ item.name }}
                 <button ng-click="showList.removeItem($index);">Remove Item</button>
             </li>
         </ol>
@@ -39,7 +39,7 @@
     <div ng-controller='doneListShowController as doneList'>
         <ol>
             <li ng-repeat="item in doneList.items.items">
-                {{ item.quantity }} of {{ item.priority }}
+                {{ item.priority }} of {{ item.name }}
             </li>
         </ol>
     </div>
