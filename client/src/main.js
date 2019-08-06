@@ -4,7 +4,7 @@
   angular.module('awesomeListApp', [])
     .controller('awesomeListAddController', awesomeListAddController)
     .controller('awesomeListShowController', awesomeListShowController)
-    .controler('doneListShowController', doneListShowController)
+    .controller('doneListShowController', doneListShowController)
     .service('ShoppingListService', ShoppingListService);
 
   awesomeListAddController.$inject = ['ShoppingListService'];
