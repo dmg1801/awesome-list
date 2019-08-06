@@ -16,30 +16,21 @@
     <h1>Awesome list of awesome things to do</h1>
     <div ng-controller='awesomeListAddController as listAdder'>
         <input type="text" ng-model="listAdder.itemName" placeholder="item name">
-        <select name="awesomePriority" id="awesomePriority" data-ng-model="listAdder.priority">
-            <option value="Normal Priority"> Normal Priority
-            </option>
-            <option value="High Priority"> High Priority
-            </option>
-        </select>
-        <button ng-click="listAdder.addItem();">Add Item To the List</button>
+        <input type="text" ng-model="listAdder.itemQuantity" placeholder="quantity">
+        <button ng-click="listAdder.addItem();">Add Item To Shopping List</button>
     </div>
 
     <div ng-controller='awesomeListShowController as showList'>
         <ol>
             <li ng-repeat="item in showList.items">
-                {{ item.priority }} of {{ item.name }}
+                {{ item.quantity }} of {{ item.name }}
                 <button ng-click="showList.removeItem($index);">Remove Item</button>
             </li>
         </ol>
-    </div>
-    <br>
-
-    <h3>Done list:</h3>
-    <div ng-controller='doneListShowController as doneList'>
+        <h3>Done List:</h3>
         <ol>
-            <li ng-repeat="item in doneList.items.items">
-                {{ item.priority }} of {{ item.name }}
+            <li ng-repeat="item in showList.doneItems">
+                {{ item.quantity }} of {{ item.name }}
             </li>
         </ol>
     </div>

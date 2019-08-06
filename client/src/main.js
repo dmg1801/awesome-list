@@ -4,7 +4,6 @@
   angular.module('awesomeListApp', [])
     .controller('awesomeListAddController', awesomeListAddController)
     .controller('awesomeListShowController', awesomeListShowController)
-    .controller('doneListShowController', doneListShowController)
     .service('ShoppingListService', ShoppingListService);
 
   awesomeListAddController.$inject = ['ShoppingListService'];
@@ -14,16 +13,16 @@
 
     listAdder.text = "";
     listAdder.itemName = null;
-    listAdder.priority = null;
+    listAdder.itemQuantity = null;
 
     listAdder.addItem = function () {
-      ShoppingListService.addItem(listAdder.itemName, listAdder.priority);
-
+      ShoppingListService.addItem(listAdder.itemName, listAdder.itemQuantity);
       //reset inputs
       listAdder.itemName = null;
-      listAdder.priority = null;
+      listAdder.itemQuantity = null;
     };
   }
+
 
   awesomeListShowController.$inject = ['ShoppingListService'];
 
@@ -31,24 +30,11 @@
     var showList = this;
 
     showList.items = ShoppingListService.getItems();
+    showList.doneItems = ShoppingListService.doneItems();
 
     showList.removeItem = function (itemIndex) {
       ShoppingListService.removeItem(itemIndex);
-      ShoppingListService.addDoneItem(itemIndex);
     };
-  }
-
-
-  doneListShowController.$inject = ['ShoppingListService'];
-
-  function doneListShowController(ShoppingListService) {
-    var doneList = this;
-
-    doneList.items = ShoppingListService.getDoneItems();
-
-    doneList.itemName = null;
-    doneList.priority = null;
-
   }
 
 
@@ -58,22 +44,22 @@
     // List of shopping items
     var items = [];
 
-    var doneItems = [];
+    var done = [];
 
-    service.addItem = function (name, priority) {
+    service.addItem = function (itemName, quantity) {
       var item = {
-        name: name,
-        priority: priority
+        name: itemName,
+        quantity: quantity
       };
       items.push(item);
     };
 
-    service.addDoneItem = function (name, priority) {
-      var doneItem = {
-        name: name,
-        priority: priority
+    service.doneItem = function (itemName, quantity) {
+      var item = {
+        name: itemName,
+        quantity: quantity
       };
-      doneItems.push(doneItem);
+      done.push(item);
     };
 
     service.removeItem = function (itemIdex) {
@@ -84,9 +70,11 @@
       return items;
     };
 
-    service.getDoneItems = function () {
-      return doneItems;
+    service.doneItems = function () {
+      return done;
     };
   }
+
+
 
 })();
