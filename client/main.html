@@ -8,43 +8,74 @@
     <meta name="author" content="D. Mongay">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../lib/angular.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
     <script src="src/main.js"></script>
     <title>Wichtige Liste!</title>
 </head>
 
 <body ng-app='awesomeListApp'>
-    <h1>Wichtige Aufgabe:</h1>
-    <div ng-controller='awesomeListAddController as listAdder'>
+    <div class="container-fluid">
+        <h1>Wichtige Aufgabe:</h1>
         <div>
-            <textarea type="text" rows="4" cols="50" ng-model="listAdder.itemName"
-                placeholder="Ihre Text hier"></textarea>
-        </div>
-        <div>
-            <select name="priority" id="priority" data-ng-model="listAdder.priority">
-                <option value=" ">
-                </option>
-                <option value="Normal Priority"> Normal Priority
-                </option>
-                <option value="High Priority"> High Priority
-                </option>
-            </select>
-            <button ng-click="listAdder.addItem();">Zur erledigten Liste hinzufügen</button>
-        </div>
-    </div>
+            <div class="col-md-12">
+                <div ng-controller='awesomeListAddController as listAdder'>
+                    <div>
+                        <textarea type="text" rows="4" cols="50" ng-model="listAdder.itemName"
+                            placeholder="Ihre Text hier"></textarea>
+                    </div>
+                    <div>
+                        <select name="priority" id="priority" data-ng-model="listAdder.priority">
+                            <option value=""> Select priority
+                            </option>
+                            <option value="Normal Priority"> Normal Priority
+                            </option>
+                            <option value="High Priority"> High Priority
+                            </option>
+                        </select>
+                        <button type="button" class="btn btn-primary" ng-click="listAdder.addItem();">Zur erledigten
+                            Liste hinzufügen</button>
+                    </div>
+                    <div data-ng-if="listAdder.nothingToAdd" class="alert alert-warning" role="alert">There is nothing
+                        to Add!</div>
+                </div>
+            </div>
 
-    <div ng-controller='awesomeListShowController as showList'>
-        <ol>
-            <li ng-repeat="item in showList.items">
-                {{ item.quantity }} -> {{ item.name }}
-                <button ng-click="showList.removeItem($index);">FERTIG!</button>
-            </li>
-        </ol>
-        <h3>Schon Fertig:</h3>
-        <ol>
-            <li ng-repeat="item in showList.doneItems">
-                {{ item.quantity }} -> {{ item.name }}
-            </li>
-        </ol>
+
+            <div ng-controller='awesomeListShowController as showList' class="row col-md-12">
+                <div class="col-md-6">
+                    <div data-ng-show="showList.nothingToDo();" class="alert alert-info">Nothing To Do</div>
+                    <ol>
+                        <li ng-repeat="item in showList.items">
+                            {{ item.quantity }} -> {{ item.name }}
+                            <button type="button" class="btn btn-success"
+                                ng-click="showList.removeItem($index);">FERTIG!</button>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-md-6">
+                    <div data-ng-show="!showList.everythingDone();">
+                        <h3>Schon Fertig:</h3>
+                    </div>
+                    <div data-ng-show="showList.everythingDone();" class="alert alert-success">Everything Done</div>
+                    <ol>
+                        <li ng-repeat="item in showList.doneItems">
+                            {{ item.quantity }} -> {{ item.name }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
     </div>
 </body>
 

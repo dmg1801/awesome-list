@@ -14,9 +14,17 @@
     listAdder.text = "";
     listAdder.itemName = null;
     listAdder.priority = null;
+    listAdder.nothingToAdd = false;
 
     listAdder.addItem = function () {
-      ShoppingListService.addItem(listAdder.itemName, listAdder.priority);
+
+      if (listAdder.itemName === null) {
+        listAdder.nothingToAdd = true;
+      } else {
+        listAdder.nothingToAdd = false;
+        ShoppingListService.addItem(listAdder.itemName, listAdder.priority);
+      }
+
       //reset inputs
       listAdder.itemName = null;
       listAdder.priority = null;
@@ -29,11 +37,27 @@
   function awesomeListShowController(ShoppingListService) {
     var showList = this;
 
+    showList.nothingToDo = function () {
+      if (ShoppingListService.items == "") {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    showList.everythingDone = function () {
+      if (ShoppingListService.done == "") {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
     showList.items = ShoppingListService.getItems();
     showList.doneItems = ShoppingListService.doneItems();
 
     showList.removeItem = function (itemIndex) {
-      ShoppingListService.removeItem(itemIndex);      
+      ShoppingListService.removeItem(itemIndex);
     };
   }
 
@@ -53,7 +77,7 @@
       };
       service.items.push(item);
     };
- 
+
     service.removeItem = function (itemIndex) {
 
       var listToRemove = service.items.splice(itemIndex, 1)[0];
