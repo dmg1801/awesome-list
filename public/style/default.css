@@ -1,0 +1,22 @@
+body {
+    background-image: url("../images/atlanta-olimp.png");
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #f8f9fa;
+}
+
+
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+    body {
+        background-image: url("../images/atlanta-olimp-sm.png");
+        background-color: #cccccc;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        color: #f8f9fa;
+    }
+}

@@ -19,54 +19,58 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+
+    <link rel="stylesheet" href="../public/style/default.css">
     <script src="src/main.js"></script>
-    <title>Wichtige Liste!</title>
+    <title>Lista Increíble!</title>
 </head>
 
 <body ng-app='awesomeListApp'>
     <div class="container-fluid">
-        <h1>Wichtige Aufgabe:</h1>
+        <h1>Cosas increíbles por hacer:</h1>
         <div>
             <div class="col-md-12">
                 <div ng-controller='awesomeListAddController as listAdder'>
                     <div>
                         <textarea type="text" rows="4" cols="50" ng-model="listAdder.itemName"
-                            placeholder="Ihre Text hier"></textarea>
+                            placeholder="Escribe aquí lo que quieres hacer!"></textarea>
                     </div>
                     <div>
                         <select name="priority" id="priority" data-ng-model="listAdder.priority">
-                            <option value=""> Select priority
+                            <option value=""> selecciona prioridad
                             </option>
-                            <option value="Normal Priority"> Normal Priority
+                            <option value="Normal Priority"> Normal
                             </option>
-                            <option value="High Priority"> High Priority
+                            <option value="High Priority"> Alta
+                            </option>
+                            <option value="High Priority"> Muy Alta
                             </option>
                         </select>
-                        <button type="button" class="btn btn-primary" ng-click="listAdder.addItem();">Zur erledigten
-                            Liste hinzufügen</button>
+                        <button type="button" class="btn btn-primary" ng-click="listAdder.addItem();">Agrégalo a la
+                            lista!!!</button>
                     </div>
-                    <div data-ng-if="listAdder.nothingToAdd" class="alert alert-warning" role="alert">There is nothing
-                        to Add!</div>
+                    <div data-ng-if="listAdder.nothingToAdd" class="alert alert-warning" role="alert">
+                        No hay nada para agregar! escribe algo ;)</div>
                 </div>
             </div>
 
 
             <div ng-controller='awesomeListShowController as showList' class="row col-md-12">
                 <div class="col-md-6">
-                    <div data-ng-show="showList.nothingToDo();" class="alert alert-info">Nothing To Do</div>
+                    <div data-ng-show="showList.nothingToDo();" class="alert alert-info">Nada por hacer?</div>
                     <ol>
                         <li ng-repeat="item in showList.items">
                             {{ item.quantity }} -> {{ item.name }}
                             <button type="button" class="btn btn-success"
-                                ng-click="showList.removeItem($index);">FERTIG!</button>
+                                ng-click="showList.removeItem($index);">LISTO!</button>
                         </li>
                     </ol>
                 </div>
                 <div class="col-md-6">
                     <div data-ng-show="!showList.everythingDone();">
-                        <h3>Schon Fertig:</h3>
+                        <h3>Cosas increíbles ya listas:</h3>
                     </div>
-                    <div data-ng-show="showList.everythingDone();" class="alert alert-success">Everything Done</div>
+                    <div data-ng-show="showList.everythingDone();" class="alert alert-success">Todo listo? seguro?</div>
                     <ol>
                         <li ng-repeat="item in showList.doneItems">
                             {{ item.quantity }} -> {{ item.name }}
