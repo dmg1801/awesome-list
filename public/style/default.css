@@ -9,6 +9,26 @@ body {
     padding: 2px;
 }
 
+.normal-priority {
+    color: #2251b4;
+}
+
+.high-priority {
+    color: #c3c129;
+}
+
+.very-high-priority {
+    color: #d43744;
+}
+
+.padd-4px {
+    padding: 4px;
+}
+
+.on-track {
+    background-color: #000000a4;
+    border-radius: 4px;
+}
 
 
 /* On screens that are 600px or less, set the background color to olive */
