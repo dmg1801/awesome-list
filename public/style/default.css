@@ -1,10 +1,12 @@
 body {
     background-image: url("../images/atlanta-olimp.png");
-    background-color: #cccccc;
+    background-size: cover;
+    background-color: #1e1e1f;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     color: #f8f9fa;
+    padding: 2px;
 }
 
 
@@ -13,10 +15,34 @@ body {
 @media screen and (max-width: 600px) {
     body {
         background-image: url("../images/atlanta-olimp-sm.png");
-        background-color: #cccccc;
+        background-size: cover;
+        background-color: #1e1e1f;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center;
         color: #f8f9fa;
+        padding: 2px;
     }
+
+    .normal-priority {
+        color: #2251b4;
+    }
+
+    .high-priority {
+        color: #c3c129;
+    }
+
+    .very-high-priority {
+        color: #d43744;
+    }
+
+    .padd-4px {
+        padding: 4px;
+    }
+
+    .on-track {
+        background-color: #000000a4;
+        border-radius: 4px;
+    }
+
 }

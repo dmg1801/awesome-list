@@ -15,6 +15,7 @@
     listAdder.itemName = null;
     listAdder.priority = null;
     listAdder.nothingToAdd = false;
+    ShoppingListService.priority = listAdder.priority;
 
     listAdder.addItem = function () {
 
@@ -36,6 +37,8 @@
 
   function awesomeListShowController(ShoppingListService) {
     var showList = this;
+
+    showList.priority = ShoppingListService.priority;
 
     showList.nothingToDo = function () {
       if (ShoppingListService.items == "") {
@@ -69,6 +72,8 @@
     service.items = [];
 
     service.done = [];
+
+    service.priority = null;
 
     service.addItem = function (itemName, priority) {
       var item = {

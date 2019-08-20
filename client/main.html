@@ -27,27 +27,31 @@
 
 <body ng-app='awesomeListApp'>
     <div class="container-fluid">
-        <h1>Cosas increíbles por hacer:</h1>
+        <h1><span class="on-track">Lista Increíble:</span></h1>
         <div>
             <div class="col-md-12">
                 <div ng-controller='awesomeListAddController as listAdder'>
                     <div>
-                        <textarea type="text" rows="4" cols="50" ng-model="listAdder.itemName"
+                        <textarea type="text" rows="4" cols="40" ng-model="listAdder.itemName"
                             placeholder="Escribe aquí lo que quieres hacer!"></textarea>
                     </div>
-                    <div>
-                        <select name="priority" id="priority" data-ng-model="listAdder.priority">
-                            <option value=""> selecciona prioridad
-                            </option>
-                            <option value="Normal Priority"> Normal
-                            </option>
-                            <option value="High Priority"> Alta
-                            </option>
-                            <option value="High Priority"> Muy Alta
-                            </option>
-                        </select>
-                        <button type="button" class="btn btn-primary" ng-click="listAdder.addItem();">Agrégalo a la
-                            lista!!!</button>
+                    <div class="row col-md-6">
+                        <div class="padd-4px">
+                            <select name="priority" id="priority" data-ng-model="listAdder.priority">
+                                <option value=""> selecciona prioridad
+                                </option>
+                                <option class="normal-priority" value="normal-priority"> Normal
+                                </option>
+                                <option class="high-priority" value="high-priority"> Alta
+                                </option>
+                                <option class="very-high-priority" value="very-high-priority"> Muy Alta
+                                </option>
+                            </select>
+                        </div>
+                        <div class="padd-4px">
+                            <button type="button" class="btn btn-primary"
+                                ng-click="listAdder.addItem();">Agrégalo!</button>
+                        </div>
                     </div>
                     <div data-ng-if="listAdder.nothingToAdd" class="alert alert-warning" role="alert">
                         No hay nada para agregar! escribe algo ;)</div>
@@ -60,7 +64,10 @@
                     <div data-ng-show="showList.nothingToDo();" class="alert alert-info">Nada por hacer?</div>
                     <ol>
                         <li ng-repeat="item in showList.items">
-                            {{ item.quantity }} -> {{ item.name }}
+                            <span class="on-track">
+                                <span data-ng-class="showList.priority"> {{ item.quantity }}</span>
+                                -> {{ item.name }}
+                            </span>
                             <button type="button" class="btn btn-success"
                                 ng-click="showList.removeItem($index);">LISTO!</button>
                         </li>
@@ -68,12 +75,15 @@
                 </div>
                 <div class="col-md-6">
                     <div data-ng-show="!showList.everythingDone();">
-                        <h3>Cosas increíbles ya listas:</h3>
+                        <h3>
+                            <span class="on-track">Cosas increíbles ya listas:</span>
+                        </h3>
                     </div>
-                    <div data-ng-show="showList.everythingDone();" class="alert alert-success">Todo listo? seguro?</div>
+                    <!-- <div data-ng-show="showList.everythingDone();" class="alert alert-success">Todo listo? seguro?</div> -->
                     <ol>
                         <li ng-repeat="item in showList.doneItems">
-                            {{ item.quantity }} -> {{ item.name }}
+                            <span class="on-track"><span data-ng-class="showList.priority">{{ item.quantity }}</span>
+                                -> {{ item.name }}</span>
                         </li>
                     </ol>
                 </div>
