@@ -32,7 +32,7 @@
             <div class="col-md-12">
                 <div ng-controller='awesomeListAddController as listAdder'>
                     <div>
-                        <textarea type="text" rows="4" cols="40" ng-model="listAdder.itemName"
+                        <textarea class="on-track" type="text" rows="4" cols="40" ng-model="listAdder.itemName"
                             placeholder="Escribe aquí lo que quieres hacer!"></textarea>
                     </div>
                     <div class="row col-md-6">
@@ -50,7 +50,7 @@
                             </select>
                         </div>
                         <div class="padd-4px">
-                            <button type="button" class="btn btn-primary"
+                            <button type="button" class="btn btn-outline-primary"
                                 ng-click="listAdder.addItem();">Agrégalo!</button>
                         </div>
                     </div>

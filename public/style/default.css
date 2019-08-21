@@ -9,6 +9,10 @@ body {
     padding: 2px;
 }
 
+textarea {
+    color: #f8f9fa;
+}
+
 .normal-priority {
     border-radius: 4px;
     padding: 4px;
@@ -44,7 +48,7 @@ body {
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
     body {
-        background-image: url("../images/atlanta-olimp-sm.png");
+        background-image: url("../images/atlanta-olimp.png");
         background-size: cover;
         background-color: #1e1e1f;
         background-repeat: no-repeat;
@@ -54,16 +58,29 @@ body {
         padding: 2px;
     }
 
+    textarea {
+        color: #f8f9fa;
+    }
+
     .normal-priority {
-        color: #2251b4;
+        border-radius: 4px;
+        padding: 4px;
+        color: #f8f9fa;
+        background-color: #2251b4;
     }
 
     .high-priority {
-        color: #c3c129;
+        border-radius: 4px;
+        padding: 4px;
+        color: #f8f9fa;
+        background-color: #c3c129;
     }
 
     .very-high-priority {
-        color: #d43744;
+        border-radius: 4px;
+        padding: 4px;
+        color: #f8f9fa;
+        background-color: #d43744;
     }
 
     .padd-4px {
@@ -73,6 +90,6 @@ body {
     .on-track {
         background-color: #000000a4;
         border-radius: 4px;
+        padding: 4px;
     }
-
 }
