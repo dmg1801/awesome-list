@@ -2,7 +2,7 @@ body {
     background-image: url("../images/atlanta-olimp.png");
     background-size: cover;
     background-color: #1e1e1f;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-attachment: fixed;
     background-position: center;
     color: #f8f9fa;
@@ -51,7 +51,7 @@ textarea {
         background-image: url("../images/atlanta-olimp.png");
         background-size: cover;
         background-color: #1e1e1f;
-        background-repeat: no-repeat;
+        background-repeat: repeat;
         background-attachment: fixed;
         background-position: center;
         color: #f8f9fa;
