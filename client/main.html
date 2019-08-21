@@ -37,7 +37,8 @@
                     </div>
                     <div class="row col-md-6">
                         <div class="padd-4px">
-                            <select name="priority" id="priority" data-ng-model="listAdder.priority">
+                            <select name="priority" id="priority" data-ng-model="listAdder.priority"
+                                data-ng-change="listAdder.takeClass();">
                                 <option value=""> selecciona prioridad
                                 </option>
                                 <option class="normal-priority" value="normal-priority"> Normal
@@ -64,11 +65,9 @@
                     <div data-ng-show="showList.nothingToDo();" class="alert alert-info">Nada por hacer?</div>
                     <ol>
                         <li ng-repeat="item in showList.items">
-                            <span class="on-track">
-                                <span data-ng-class="showList.priority"> {{ item.quantity }}</span>
-                                -> {{ item.name }}
-                            </span>
-                            <button type="button" class="btn btn-success"
+                            <span data-ng-class="item.quantity">{{ item.quantity }}</span>
+                            <span class="on-track"> {{ item.name }} </span>
+                            <button type="button" class="btn btn-outline-success btn-sm"
                                 ng-click="showList.removeItem($index);">LISTO!</button>
                         </li>
                     </ol>
@@ -82,8 +81,10 @@
                     <!-- <div data-ng-show="showList.everythingDone();" class="alert alert-success">Todo listo? seguro?</div> -->
                     <ol>
                         <li ng-repeat="item in showList.doneItems">
-                            <span class="on-track"><span data-ng-class="showList.priority">{{ item.quantity }}</span>
-                                -> {{ item.name }}</span>
+                            <span data-ng-class="item.quantity">{{ item.quantity }}</span>
+                            <span class="on-track"> {{ item.name }} </span>
+                            <button type="button" class="btn btn-outline-light btn-sm"
+                                ng-click="showList.returnItem($index);">DEVOLVER</button>
                         </li>
                     </ol>
                 </div>

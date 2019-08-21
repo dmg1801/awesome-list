@@ -15,7 +15,6 @@
     listAdder.itemName = null;
     listAdder.priority = null;
     listAdder.nothingToAdd = false;
-    ShoppingListService.priority = listAdder.priority;
 
     listAdder.addItem = function () {
 
@@ -30,6 +29,8 @@
       listAdder.itemName = null;
       listAdder.priority = null;
     };
+
+
   }
 
 
@@ -38,7 +39,7 @@
   function awesomeListShowController(ShoppingListService) {
     var showList = this;
 
-    showList.priority = ShoppingListService.priority;
+
 
     showList.nothingToDo = function () {
       if (ShoppingListService.items == "") {
@@ -62,6 +63,10 @@
     showList.removeItem = function (itemIndex) {
       ShoppingListService.removeItem(itemIndex);
     };
+
+    showList.returnItem = function (itemIndex) {
+      ShoppingListService.returnItem(itemIndex);
+    };
   }
 
 
@@ -73,7 +78,6 @@
 
     service.done = [];
 
-    service.priority = null;
 
     service.addItem = function (itemName, priority) {
       var item = {
@@ -87,6 +91,12 @@
 
       var listToRemove = service.items.splice(itemIndex, 1)[0];
       service.done.push(listToRemove);
+    };
+
+    service.returnItem = function (itemIndex) {
+
+      var listToReturn = service.done.splice(itemIndex, 1)[0];
+      service.items.push(listToReturn);
     };
 
     service.getItems = function () {
