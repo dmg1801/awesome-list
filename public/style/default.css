@@ -1,22 +1,107 @@
 body {
+<<<<<<< HEAD
     background-image: url("../images/etna-airplane.jpg");
     background-color: #cccccc;
     /* background-repeat: no-repeat; */
+=======
+    background-image: url("../images/atlanta-olimp.png");
+    background-size: cover;
+    background-color: #1e1e1f;
+    background-repeat: repeat;
+>>>>>>> 4c187d601e00097241ab608dc0a1e0440d1ffc93
     background-attachment: fixed;
     background-position: center;
     color: #f8f9fa;
+    padding: 2px;
 }
 
+textarea {
+    color: #f8f9fa;
+}
+
+.normal-priority {
+    border-radius: 4px;
+    padding: 4px;
+    color: #f8f9fa;
+    background-color: #2251b4;
+}
+
+.high-priority {
+    border-radius: 4px;
+    padding: 4px;
+    color: #f8f9fa;
+    background-color: #c3c129;
+}
+
+.very-high-priority {
+    border-radius: 4px;
+    padding: 4px;
+    color: #f8f9fa;
+    background-color: #d43744;
+}
+
+.padd-4px {
+    padding: 4px;
+}
+
+.on-track {
+    background-color: #000000a4;
+    border-radius: 4px;
+    padding: 4px;
+}
 
 
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
     body {
+<<<<<<< HEAD
         background-image: url("../images/etna-airplane.jpg");
         background-color: #cccccc;
         /* background-repeat: no-repeat; */
+=======
+        background-image: url("../images/atlanta-olimp.png");
+        background-size: cover;
+        background-color: #1e1e1f;
+        background-repeat: repeat;
+>>>>>>> 4c187d601e00097241ab608dc0a1e0440d1ffc93
         background-attachment: fixed;
         background-position: center;
         color: #f8f9fa;
+        padding: 2px;
+    }
+
+    textarea {
+        color: #f8f9fa;
+    }
+
+    .normal-priority {
+        border-radius: 4px;
+        padding: 4px;
+        color: #f8f9fa;
+        background-color: #2251b4;
+    }
+
+    .high-priority {
+        border-radius: 4px;
+        padding: 4px;
+        color: #f8f9fa;
+        background-color: #c3c129;
+    }
+
+    .very-high-priority {
+        border-radius: 4px;
+        padding: 4px;
+        color: #f8f9fa;
+        background-color: #d43744;
+    }
+
+    .padd-4px {
+        padding: 4px;
+    }
+
+    .on-track {
+        background-color: #000000a4;
+        border-radius: 4px;
+        padding: 4px;
     }
 }

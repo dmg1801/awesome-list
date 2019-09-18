@@ -29,6 +29,8 @@
       listAdder.itemName = null;
       listAdder.priority = null;
     };
+
+
   }
 
 
@@ -36,6 +38,8 @@
 
   function awesomeListShowController(ShoppingListService) {
     var showList = this;
+
+
 
     showList.nothingToDo = function () {
       if (ShoppingListService.items == "") {
@@ -59,6 +63,10 @@
     showList.removeItem = function (itemIndex) {
       ShoppingListService.removeItem(itemIndex);
     };
+
+    showList.returnItem = function (itemIndex) {
+      ShoppingListService.returnItem(itemIndex);
+    };
   }
 
 
@@ -69,6 +77,7 @@
     service.items = [];
 
     service.done = [];
+
 
     service.addItem = function (itemName, priority) {
       var item = {
@@ -82,6 +91,12 @@
 
       var listToRemove = service.items.splice(itemIndex, 1)[0];
       service.done.push(listToRemove);
+    };
+
+    service.returnItem = function (itemIndex) {
+
+      var listToReturn = service.done.splice(itemIndex, 1)[0];
+      service.items.push(listToReturn);
     };
 
     service.getItems = function () {
