@@ -26,14 +26,14 @@
 </head>
 
 <body ng-app='awesomeListApp'>
-    <img id="estirada" src="../public/images/tema-griego.png" />
+    <img id="estirada" src="../public/images/tema-griego-colores-clasicos.png" />
     <div class="container-fluid">
         <h1><span class="on-track">Lista Increíble:</span></h1>
         <div>
             <div class="col-md-12">
                 <div ng-controller='awesomeListAddController as listAdder'>
                     <div>
-                        <textarea class="on-track" type="text" rows="2" cols="40" ng-model="listAdder.itemName"
+                        <textarea class="to-write" type="text" rows="2" cols="60" ng-model="listAdder.itemName"
                             placeholder="Escribe aquí lo que quieres hacer!"></textarea>
                     </div>
                     <div class="row col-md-6">
@@ -55,15 +55,15 @@
                                 ng-click="listAdder.addItem();">Agrégalo!</button>
                         </div>
                     </div>
-                    <div data-ng-if="listAdder.nothingToAdd" class="alert alert-warning row col-md-6" role="alert">
-                        No hay nada para agregar! escribe algo ;)</div>
+                    <!-- <div data-ng-if="listAdder.nothingToAdd" class="alert alert-warning row col-md-6" role="alert">
+                        No hay nada para agregar! escribe algo ;)</div> -->
                 </div>
             </div>
 
 
             <div ng-controller='awesomeListShowController as showList' class="row col-md-12">
                 <div class="col-md-6">
-                    <div data-ng-show="showList.nothingToDo();" class="alert alert-info">Nada por hacer?</div>
+                    <!-- <div data-ng-show="showList.nothingToDo();" class="alert alert-info">Nada por hacer?</div> -->
                     <ol>
                         <li ng-repeat="item in showList.items">
                             <span data-ng-class="item.quantity">{{ item.quantity }}</span>

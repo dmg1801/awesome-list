@@ -43,9 +43,16 @@ textarea {
 }
 
 .on-track {
-    background-color: #000000a4;
+    background-color: #0003aaa4;
     border-radius: 4px;
     padding: 4px;
+}
+
+.to-write {
+    background-color: #aaacf7a4;
+    border-radius: 4px;
+    padding: 4px;
+    color: #000000;
 }
 
 
