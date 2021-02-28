@@ -4,6 +4,7 @@
   angular.module('awesomeListApp', [])
     .controller('awesomeListAddController', awesomeListAddController)
     .controller('awesomeListShowController', awesomeListShowController)
+    .controller('awesomeListCookies', awesomeListCookies)
     .service('ShoppingListService', ShoppingListService);
 
   awesomeListAddController.$inject = ['ShoppingListService'];
@@ -69,6 +70,40 @@
     };
   }
 
+  awesomeListCookies.$inject = ['ShoppingListService'];
+  function awesomeListCookies(ShoppingListService) {
+    var cookiesList = this;
+
+    cookiesList.cookieValue = "";
+    cookiesList.showCookieMessage = false;
+
+    cookiesList.acceptCookie = function () {
+      $.cookie("cookieValue", "true");
+      cookiesList.showCookieMessage = true;
+      cookiesList.readcookie();
+    };
+
+    cookiesList.rejectCookie = function () {
+      $.cookie("cookieValue", "false");
+      cookiesList.showCookieMessage = false;
+      cookiesList.readcookie();
+    };
+
+    cookiesList.readcookie = function () {
+      cookiesList.cookieValue = $.cookie("cookieValue");
+    };
+
+    cookiesList.$onInit = function () {
+      cookiesList.cookieValue = $.cookie("cookieValue");
+
+      if ($.cookie("cookieValue") == "true") {
+        cookiesList.showCookieMessage = true;
+      } else {
+        cookiesList.showCookieMessage = false;
+      }
+    };
+  }
+
 
   function ShoppingListService() {
     var service = this;
@@ -107,4 +142,6 @@
       return service.done;
     };
   }
+
+
 })();

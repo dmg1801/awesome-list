@@ -1,6 +1,10 @@
 # awesome-list
 awesome list for awesome stuff to do
 
+#broser-sync (if you are usig it)
+on the terminal:
+browser-sync start --server --directory --files "**/*"
+
 #Git hub pages
 https://dmg1801.github.io/awesome-list/client/main.html
 
@@ -11,6 +15,8 @@ https://www.coursera.org/learn/single-page-web-apps-with-angularjs
 
 You would also like:
 https://www.coursera.org/learn/html-css-javascript-for-web-developers
+
+
 
 
 
