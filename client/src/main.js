@@ -75,17 +75,17 @@
     var cookiesList = this;
 
     cookiesList.cookieValue = "";
-    cookiesList.showCookieMessage = false;
+    cookiesList.showCookieMessage = true;
 
     cookiesList.acceptCookie = function () {
       $.cookie("cookieValue", "true");
-      cookiesList.showCookieMessage = true;
+      cookiesList.showCookieMessage = false;
       cookiesList.readcookie();
     };
 
     cookiesList.rejectCookie = function () {
       $.cookie("cookieValue", "false");
-      cookiesList.showCookieMessage = false;
+      cookiesList.showCookieMessage = true;
       cookiesList.readcookie();
     };
 
@@ -97,9 +97,9 @@
       cookiesList.cookieValue = $.cookie("cookieValue");
 
       if ($.cookie("cookieValue") == "true") {
-        cookiesList.showCookieMessage = true;
-      } else {
         cookiesList.showCookieMessage = false;
+      } else {
+        cookiesList.showCookieMessage = true;
       }
     };
   }

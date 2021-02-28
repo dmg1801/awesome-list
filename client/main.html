@@ -97,26 +97,27 @@
 
         <!-- COOKIES MESSAGE-->
         <div ng-controller='awesomeListCookies as cookiesList' class="col-12 col-md-12">
-
-            <div ng-if="cookiesList.showCookieMessage">
-                <div>
-                    <span>We care about your privacy:</span>
-                </div>
-                <div>
-                    <span>We use cookies to make a better user experience. "Awesome list" doesn't use any
-                        external data-base. The items of the list that you are going to write, are saved on your
-                        browser using cookies</span>
+            <div id="cookie-message">
+                <div ng-if="cookiesList.showCookieMessage">
+                    <div>
+                        <span class="text-strong">We care about your privacy:</span>
+                    </div>
+                    <div>
+                        <span>We use cookies to make a better user experience. "Awesome list" doesn't use any
+                            external data-base. The items of the list that you are going to write, are saved on your
+                            browser using cookies</span>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-success" ng-click="cookiesList.acceptCookie();">ACCEPT
+                        </button>
+                        <button class="btn btn-outline-danger" ng-click="cookiesList.rejectCookie();">REJECT
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div>
-                <button class="btn btn-outline-success" ng-click="cookiesList.acceptCookie();">ACCEPT
-                </button>
-                <button class="btn btn-outline-danger" ng-click="cookiesList.rejectCookie();">REJECT
-                </button>
-            </div>
 
             <div>
-                <span>{{cookiesList.cookieValue}}</span>
+                <span class="text-strong">Cookies accepted: </span><span>{{cookiesList.cookieValue}}</span>
             </div>
         </div>
 
